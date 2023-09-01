@@ -1,0 +1,83 @@
+<style>
+    h2 {
+        background: green;
+        padding: 20px;
+        font-size: 2em;
+        text-shadow: 2px 2px 2px grey;
+        color: white;
+        border-radius: 25px;
+        border: 2px solid black;
+    }
+    div {
+        border:2px solid black;
+        margin: 20px;
+        padding-top:5px;
+        width: 40%;
+        border-radius: 20px;
+        box-shadow: 4px 4px 2px green;
+        background: #9acd32;
+    }
+    div #titulo{
+        font-size: 1.5em;
+        text-decoration: none;
+        color: blue;
+        background: #8fbc8f;
+        border-radius: 20px;
+        padding:20px;  
+    }
+    div #titulo:hover {
+        padding-left: 30%;
+        padding-right: 30%;
+        transition: 0.4s;
+        background: linear-gradient(magenta, purple);
+        color: white;
+    }
+    div .bottom_button{
+        font-size: 1.5em;
+        text-decoration: none;
+        color: black;
+        background: #adff2f;
+        border-radius: 20px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+#Create_buton {
+    padding: 20px;
+    background: #adff2f;
+    color: black;
+    font-size: 2em;
+    border-radius: 20px;
+    text-decoration: none;
+}
+#Create_buton:hover{
+    background: linear-gradient(#00fa9a, #00ff7f);
+    transition: 0.4s;
+    padding-left: 35px;
+    padding-right: 35px;
+}
+body {
+    background: #90ee90;
+    font-family: calibri;
+}
+    
+</style>
+</style>
+    <center>
+        <br>
+        <h2>Blog list</h2>
+        <br>
+                {%for post in posts%}
+                <div>
+                    <br>
+                    <a id="titulo" href="{% url 'blog:detail' post.id %}">{{post.title}}</a>
+                    <br><br><br><br>
+                    <a class="bottom_button" href="{% url 'blog:update' post.id %}">Update {{post.title}}</a>
+                    <br><br>
+                    <a class="bottom_button" href="{% url 'blog:delete' post.id %}">Delete {{post.title}}</a>
+                    <br><br>
+                </div>
+                {%endfor%}
+        <br>
+        <a id="Create_buton" href="{% url 'blog:create' %}">Create New Post</a>
+        <br>
+    </center>

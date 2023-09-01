@@ -1,0 +1,42 @@
+<style>
+    body {
+        background: #90ee90;
+        font-family: calibri;
+    }
+
+    div {
+        margin: 20px;
+        width: 40%;
+        border: 2px solid black;
+        border-radius: 20px;
+        box-shadow: 2px 2px 2px grey;
+        background: #98fb98;
+    }
+    div button {
+        padding: 10px;
+        border-radius: 20px;
+        background: linear-gradient(orange, red);
+        color: white;
+        text-shadow: 2px 2px 2px black;
+    }
+    div button:hover {
+        transition:0.2s;
+        padding: 20px;
+    }
+</style>
+
+<center>
+    <div>
+        <form method="POST">
+        {% csrf_token %}
+        {{form}}
+        <h2>Are you sure of deleting this post?</h2>
+        <hr>
+        {{post.title}}
+        <hr>
+        <p>The delete will be permament</p>
+        <hr>
+        <button type="submit">Delete</button>
+        </form>
+    </div>
+</center>

@@ -1,0 +1,21 @@
+<style>
+    body {
+        background: #90ee90;
+        font-family: calibri;
+    }
+</style>
+
+<center>
+    <form method="POST">
+    {% csrf_token %}
+    Title
+    <br>
+    {{form.title}}
+    <br>
+    content
+    <br>
+    {{form.content}}
+    <br>
+    <button type="submit">Submit</button>
+    </form>
+</center>
