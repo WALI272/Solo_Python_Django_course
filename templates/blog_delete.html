@@ -1,0 +1,60 @@
+<style>
+    body {
+        background: #90ee90;
+        font-family: calibri;
+    }
+
+    div {
+        margin: 20px;
+        width: 15em;
+        border: 2px solid black;
+        border-radius: 20px;
+        box-shadow: 2px 2px 2px grey;
+        background: #3DB669;
+        color: greenyellow;
+        font-size: 1.5em;
+    }
+    div button {
+        padding: 10px;
+        border-radius: 20px;
+        background: linear-gradient(orange, red);
+        color: white;
+        text-shadow: 2px 2px 2px black;
+    }
+    div button:hover {
+        transition:0.2s;
+        padding: 20px;
+    }
+    #button_back {
+        padding: 20px;
+        width: 10em;
+        background: greenyellow;
+        border-radius: 25px;
+        box-shadow: 2px 2px 2px grey;
+        text-decoration: none;
+        color: black;
+        text-shadow: 2px 2px 2px green;
+    }
+    #button_back:hover {
+        background: linear-gradient(greenyellow, green);
+    }
+</style>
+
+<center>
+    <div>
+        <form method="POST">
+        {% csrf_token %}
+        {{form}}
+        <h2>Are you sure of deleting this post?</h2>
+        <hr>
+        {{post.title}}
+        <hr>
+        <p>The delete will be permament</p>
+        <hr>
+        <button type="submit">Delete</button>
+        <br><br>
+        <a  id="button_back" href="{% url 'blog:home' %}">Volver al blog</a>
+        <br>
+        </form>
+    </div>
+</center>
